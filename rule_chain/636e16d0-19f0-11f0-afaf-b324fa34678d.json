@@ -46,7 +46,7 @@
       "type" : "Success"
     }, {
       "fromIndex" : 4,
-      "toIndex" : 14,
+      "toIndex" : 12,
       "type" : "Success"
     }, {
       "fromIndex" : 7,
@@ -59,38 +59,54 @@
     }, {
       "fromIndex" : 7,
       "toIndex" : 10,
-      "type" : "Error"
+      "type" : "Light"
     }, {
       "fromIndex" : 7,
       "toIndex" : 11,
-      "type" : "Light"
+      "type" : "Error"
+    }, {
+      "fromIndex" : 7,
+      "toIndex" : 15,
+      "type" : "Luminaire"
+    }, {
+      "fromIndex" : 7,
+      "toIndex" : 16,
+      "type" : "Status+"
+    }, {
+      "fromIndex" : 7,
+      "toIndex" : 17,
+      "type" : "Hybrid Profile"
+    }, {
+      "fromIndex" : 7,
+      "toIndex" : 21,
+      "type" : "Inventory"
     }, {
       "fromIndex" : 8,
       "toIndex" : 9,
       "type" : "Success"
     }, {
       "fromIndex" : 8,
-      "toIndex" : 15,
-      "type" : "Success"
-    }, {
-      "fromIndex" : 10,
-      "toIndex" : 12,
-      "type" : "Success"
-    }, {
-      "fromIndex" : 11,
-      "toIndex" : 16,
-      "type" : "Success"
-    }, {
-      "fromIndex" : 12,
       "toIndex" : 13,
       "type" : "Success"
     }, {
-      "fromIndex" : 16,
-      "toIndex" : 17,
-      "type" : "Failure"
+      "fromIndex" : 10,
+      "toIndex" : 14,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 15,
+      "toIndex" : 18,
+      "type" : "Success"
     }, {
       "fromIndex" : 16,
-      "toIndex" : 17,
+      "toIndex" : 19,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 17,
+      "toIndex" : 20,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 21,
+      "toIndex" : 22,
       "type" : "Success"
     } ],
     "firstNodeIndex" : 3,
@@ -144,8 +160,8 @@
     }, {
       "additionalInfo" : {
         "description" : null,
-        "layoutX" : 534,
-        "layoutY" : 155
+        "layoutX" : 541,
+        "layoutY" : 152
       },
       "configuration" : {
         "version" : 0
@@ -189,8 +205,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 589,
-        "layoutY" : 310
+        "layoutX" : 758,
+        "layoutY" : 195
       },
       "configuration" : {
         "scriptLang" : "JS",
@@ -205,7 +221,7 @@
         "entityType" : "RULE_NODE",
         "id" : "96195880-1a98-11f0-afaf-b324fa34678d"
       },
-      "name" : "Data",
+      "name" : "Status",
       "queueName" : null,
       "ruleChainId" : null,
       "singletonMode" : false,
@@ -213,8 +229,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 1083,
-        "layoutY" : 301
+        "layoutX" : 1166,
+        "layoutY" : 187
       },
       "configuration" : {
         "scope" : "SERVER_SCOPE",
@@ -238,8 +254,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 1085,
-        "layoutY" : 364
+        "layoutX" : 1165,
+        "layoutY" : 232
       },
       "configuration" : {
         "version" : 0
@@ -265,7 +281,7 @@
       },
       "configuration" : {
         "scriptLang" : "JS",
-        "jsScript" : "if (msg.isAcknowledged != null){\n    return ['Acknowledge']\n}\n\nvar hex = (msg.HexData).toString();\nhex = hex.substring(0, 2);\n\nif (hex == 10) {\n    return ['Status'];\n} else if (hex == 12) {\n    return ['Error'];\n} else if (hex == 20) {\n    return ['Gear'];\n} else if (hex == 24) {\n    return ['Luminaire'];\n} else if (hex == 13) {\n    return ['Light'];\n} else if (hex == 14) {\n    return ['Status+'];\n} else if (hex == 28) {\n    return ['Hybrid Profile'];\n} else {\n    return ['Other'];\n}",
+        "jsScript" : "if (msg.isAcknowledged != null){\n    return ['Acknowledge']\n}\n\nvar hex = (msg.HexData).toString();\nhex = hex.substring(0, 2);\n\nif (hex == 10) {\n    return ['Status'];\n} else if (hex == 12) {\n    return ['Error'];\n} else if (hex == 13) {\n    return ['Light'];\n} else if (hex == 14) {\n    return ['Status+'];\n} else if (hex == 20) {\n    return ['Gear'];\n} else if (hex == 24) {\n    return ['Luminaire'];\n} else if (hex == 26) {\n    return ['Inventory'];\n} else if (hex == 28) {\n    return ['Hybrid Profile'];\n} else {\n    return ['Other'];\n}",
         "tbelScript" : "if (msg.isAcknowledged != null){\n    return ['Acknowledge']\n}\n\nvar hex = (msg.HexData).toString();\nhex = hex.substring(0, 2);\n\nif (hex == 10) {\n    return ['Status'];\n} else if (hex == 12) {\n    return ['Error'];\n} else if (hex == 20) {\n    return ['Gear'];\n} else if (hex == 24) {\n    return ['Luminaire'];\n} else if (hex == 13) {\n    return ['Light'];\n} else if (hex == 14) {\n    return ['Status+'];\n} else if (hex == 28) {\n    return ['Hybrid Profile'];\n} else {\n    return ['Other'];\n}"
       },
       "configurationVersion" : 0,
@@ -284,8 +300,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 597,
-        "layoutY" : 457
+        "layoutX" : 765,
+        "layoutY" : 442
       },
       "configuration" : {
         "scriptLang" : "JS",
@@ -308,8 +324,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 922,
-        "layoutY" : 529
+        "layoutX" : 1181,
+        "layoutY" : 464
       },
       "configuration" : {
         "scope" : "CLIENT_SCOPE",
@@ -333,32 +349,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 310,
-        "layoutY" : 749
-      },
-      "configuration" : {
-        "scriptLang" : "JS",
-        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
-        "tbelScript" : "return {msg: msg, metadata: metadata, msgType: msgType};"
-      },
-      "configurationVersion" : 0,
-      "createdTime" : 0,
-      "debugMode" : true,
-      "externalId" : null,
-      "id" : {
-        "entityType" : "RULE_NODE",
-        "id" : "ed179d50-1aa1-11f0-afaf-b324fa34678d"
-      },
-      "name" : "Error",
-      "queueName" : null,
-      "ruleChainId" : null,
-      "singletonMode" : false,
-      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
-    }, {
-      "additionalInfo" : {
-        "description" : "",
-        "layoutX" : 397,
-        "layoutY" : 634
+        "layoutX" : 755,
+        "layoutY" : 288
       },
       "configuration" : {
         "scriptLang" : "JS",
@@ -381,43 +373,12 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 578,
-        "layoutY" : 746
-      },
-      "configuration" : {
-        "alarmsCountMappings" : [ {
-          "target" : "alarmsCount",
-          "typesList" : null,
-          "severityList" : null,
-          "statusList" : null,
-          "latestInterval" : 0
-        } ],
-        "countAlarmsForPropagationEntities" : true,
-        "propagationEntityTypes" : [ ],
-        "outMsgType" : "POST_TELEMETRY_REQUEST"
-      },
-      "configurationVersion" : 2,
-      "createdTime" : 0,
-      "debugMode" : false,
-      "externalId" : null,
-      "id" : {
-        "entityType" : "RULE_NODE",
-        "id" : "0e51e520-1abb-11f0-afaf-b324fa34678d"
-      },
-      "name" : "Error Alarm",
-      "queueName" : null,
-      "ruleChainId" : null,
-      "singletonMode" : false,
-      "type" : "org.thingsboard.rule.engine.analytics.latest.alarm.TbAlarmsCountNodeV2"
-    }, {
-      "additionalInfo" : {
-        "description" : "",
-        "layoutX" : 847,
-        "layoutY" : 748
+        "layoutX" : 771,
+        "layoutY" : 737
       },
       "configuration" : {
         "forwardMsgToDefaultRuleChain" : false,
-        "ruleChainId" : "b48971c0-03d1-11f0-afaf-b324fa34678d"
+        "ruleChainId" : "ae5123d0-1c2b-11f0-afaf-b324fa34678d"
       },
       "configurationVersion" : 1,
       "createdTime" : 0,
@@ -435,8 +396,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 1083,
-        "layoutY" : 235
+        "layoutX" : 1164,
+        "layoutY" : 142
       },
       "configuration" : {
         "defaultTTL" : 0,
@@ -459,8 +420,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 918,
-        "layoutY" : 467
+        "layoutX" : 1180,
+        "layoutY" : 420
       },
       "configuration" : {
         "defaultTTL" : 0,
@@ -483,8 +444,8 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 734,
-        "layoutY" : 631
+        "layoutX" : 1176,
+        "layoutY" : 296
       },
       "configuration" : {
         "defaultTTL" : 0,
@@ -507,50 +468,199 @@
     }, {
       "additionalInfo" : {
         "description" : "",
-        "layoutX" : 1116,
-        "layoutY" : 620
+        "layoutX" : 766,
+        "layoutY" : 529
       },
       "configuration" : {
-        "restEndpointUrlPattern" : "http://localhost/api/gateways",
-        "requestMethod" : "GET",
-        "useSimpleClientHttpFactory" : false,
-        "parseToPlainText" : false,
-        "ignoreRequestBody" : false,
-        "enableProxy" : false,
-        "useSystemProxyProperties" : false,
-        "proxyScheme" : null,
-        "proxyHost" : null,
-        "proxyPort" : 0,
-        "proxyUser" : null,
-        "proxyPassword" : null,
-        "readTimeoutMs" : 0,
-        "maxParallelRequestsCount" : 0,
-        "headers" : {
-          "Content-Type" : "application/json"
-        },
-        "useRedisQueueForMsgPersistence" : false,
-        "trimQueue" : null,
-        "maxQueueSize" : null,
-        "credentials" : {
-          "type" : "anonymous"
-        }
+        "scriptLang" : "JS",
+        "jsScript" : "function padString(string, length, paddingCharacter) {\n    while (string.length < length) {\n        string = paddingCharacter + string;\n    }\n    return string;\n}\n\n\nmsg.GearNo = (parseInt(msg.HexData.substring(2, 4), 16));\nmsg.TotalGearNo = (parseInt(msg.HexData.substring(4, 6), 16));\n\n\nvar LoadsideActiveEnergyScale = HexComplement(parseInt(msg.HexData.substring(6, 8), 16));\nmsg.LoadsideActiveEnergy = (parseInt((msg.HexData.substring(8, 20).match(/.{2}/g).reverse().join('')), 16)) * Math.pow(10, LoadsideActiveEnergyScale);\n\nvar LoadsideActivePowerScale = HexComplement(parseInt(msg.HexData.substring(20, 22), 16));\nmsg.LoadsideActivePower = (parseInt((msg.HexData.substring(22, 30).match(/.{2}/g).reverse().join('')), 16)) * Math.pow(10, LoadsideActivePowerScale);\n\n\nmsg.LightSourceStartCounter = parseInt(msg.HexData.substring(30, 36), 16);\nmsg.LightSourceOperatingTime = parseInt(msg.HexData.substring(36, 44), 16);\nmsg.LightSourceVoltage = parseInt(msg.HexData.substring(44, 48), 16)/10;\nmsg.LightSourceCurrent = parseInt(msg.HexData.substring(48, 52), 16)/1000;\nmsg.LightSourceOverfallFailureConditionCounter = parseInt(msg.HexData.substring(52, 54), 16);\nmsg.LightSourceShortCircuitCounter = parseInt(msg.HexData.substring(54, 56), 16);\nmsg.LightSourceOpenCircuitCounter = parseInt(msg.HexData.substring(56, 58), 16);\nmsg.LightSourceThermalDearatingCounter = parseInt(msg.HexData.substring(58, 60), 16);\nmsg.LightSourceThermalShutdownCounter = parseInt(msg.HexData.substring(60, 62), 16);\nmsg.LightSourceTemperature = parseInt(msg.HexData.substring(62, 64), 16);\nmsg.LuminaireErrorFlags = padString((parseInt(msg.HexData.substring(64, 66), 16)).toString(2), 8, '0');\n\n\nfunction HexComplement(hex) {\n  hex = parseInt(hex);\n  if ((hex & 0x80) > 0) {\n    hex = hex - 0x100;\n    return hex;\n  }\n}\n\nreturn {msg:msg, metadata:metadata, msgType:msgType};",
+        "tbelScript" : "return {msg: msg, metadata: metadata, msgType: msgType};"
       },
-      "configurationVersion" : 1,
+      "configurationVersion" : 0,
       "createdTime" : 0,
-      "debugMode" : false,
+      "debugMode" : true,
       "externalId" : null,
       "id" : {
         "entityType" : "RULE_NODE",
-        "id" : "b3b0b780-1b97-11f0-afaf-b324fa34678d"
+        "id" : "6253e450-1c4d-11f0-afaf-b324fa34678d"
       },
-      "name" : "sdr",
+      "name" : "Luminaire",
       "queueName" : null,
       "ruleChainId" : null,
       "singletonMode" : false,
-      "type" : "org.thingsboard.rule.engine.rest.TbRestApiCallNode"
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 761,
+        "layoutY" : 367
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "\nmsg.ldrOnThreshold = (parseInt(msg.HexData.substring(2, 6),\n    16));\nmsg.ldrOffThreshold = (parseInt(msg.HexData.substring(6, 10),\n16));\n\nif (msg.HexData.length > 10) {\n    msg.sunriseTime = getHour((parseInt(msg.HexData.substring(10, 18),16)));\n    msg.sunsetTime = getHour((parseInt(msg.HexData.substring(18, 26),16)));\n    msg.groupNumber = parseInt(msg.HexData.substring(26, 28),16);\n    msg.ProfileType = parseInt(msg.HexData.substring(28, 30),16);\n    msg.LdrMode = parseInt(msg.HexData.substring(30, 32),16);\n    \n}\n\nif (msg.HexData.length > 32){\n    msg.sunriseTwilightTime = getHour((parseInt(msg.HexData.substring(32, 40),16)));\n    msg.sunsetTwilightTime = getHour((parseInt(msg.HexData.substring(40, 48),16)));\n    msg.sunriseTwilightAngle = reverse_twos_complement(parseInt(msg.HexData.substring(48, 56),16));\n    msg.sunsetTwilightAngle = reverse_twos_complement(parseInt(msg.HexData.substring(56, 64),16));\n    \n    msg.physicalMinLightLevel = getCorrespondingLevel(parseInt(msg.HexData.substring(64, 66), 16));\n    if (msg.physicalMinLightLevel == -1) {\n        msg.physicalMinLightLevel = getCorrespondingLevelCont(parseInt(msg.HexData.substring(64, 66), 16));\n    }\n    \n    msg.maxLightLevel = getCorrespondingLevel(parseInt(msg.HexData.substring(66, 68), 16));\n    if (msg.maxLightLevel == -1) {\n        msg.maxLightLevel = getCorrespondingLevelCont(parseInt(msg.HexData.substring(66, 68), 16));\n    }\n    \n    \n    \n    msg.minLightLevel = getCorrespondingLevel(parseInt(msg.HexData.substring(68, 70), 16));\n    if (msg.minLightLevel == -1) {\n        msg.minLightLevel = getCorrespondingLevelCont(parseInt(msg.HexData.substring(68, 70), 16));\n    }\n    \n    msg.powerOnLightLevel = getCorrespondingLevel(parseInt(msg.HexData.substring(70, 72), 16));\n    if (msg.powerOnLightLevel == -1) {\n        msg.powerOnLightLevel = getCorrespondingLevelCont(parseInt(msg.HexData.substring(70, 72), 16));\n    }\n    if (parseInt(msg.HexData.substring(70,72), 16) == 255){\n        msg.powerOnLightLevel = \"Latest Light Level\";\n    }\n    \n    msg.failureLightLevel = getCorrespondingLevel(parseInt(msg.HexData.substring(72, 74), 16));\n    if (msg.failureLightLevel == -1) {\n        msg.failureLightLevel = getCorrespondingLevelCont(parseInt(msg.HexData.substring(72, 74), 16));\n    }\n\n    msg.fadeTime = parseInt(msg.HexData.substring(74, 76),16);\n}\nreturn {\n    msg: msg,\n    metadata: metadata,\n    msgType: msgType\n};\n\n\nfunction getHour(timestamp){\n    var hour = padStart(String(Math.floor(timestamp/60)), 2, \"0\");\n    var min = padStart(String(timestamp%60), 2, \"0\");\n    var formattedTime = hour + \":\" + min; \n    return formattedTime;\n}\n\nfunction padStart(value, targetLength, padString) {\n    value = String(value);\n    while (value.length < targetLength) {\n        value = padString + value;\n    }\n    return value;\n}\n\nfunction reverse_twos_complement(value){\n    if (value >= 2147483648){\n        value = value - 4294967296;\n    }\n    return (value/100.0).toFixed(2);\n}\n\n\nfunction getCorrespondingLevel(input_light) {\n    switch (input_light) {\n        case 0:\n            return 0;\n        case 144:\n            return 5;\n        case 170:\n            return 10;\n        case 185:\n            return 15;\n        case 195:\n            return 20;\n        case 203:\n            return 25; // Note: 80 is used for both 24 and 25 in the original function\n        case 210:\n            return 30; // Note: 83 is used for both 30 and 31 in the original function\n        case 216:\n            return 35; // Note: 85 is used for 34, 35, and 36 in the original function\n        case 221:\n            return 40; // Note: 87 is used for 39, 40, and 41 in the original function\n        case 225:\n            return 45; // Note: 89 is used for 45, 46, and 47 in the original function\n        case 229:\n            return 50; // Note: 90 is used for 48, 49, and 50 in the original function\n        case 233:\n            return 55; // Note: 92 is used for 55, 56, 57, and 58 in the original function\n        case 235:\n            return 60; // Note: 93 is used for 59, 60, 61, 62, and 63 in the original function\n        case 239:\n            return 65; // Note: 94 is used for 64, 65, 66, 67, and 68 in the original function\n        case 241:\n            return 70; // Note: 95 is used for 69, 70, 71, 72, 73, and 74 in the original function\n        case 244:\n            return 75; // Note: 96 is used for 75, 76, 77, 78, and 79 in the original function\n        case 246:\n            return 80; // Note: 97 is used for 80, 81, 82, 83, and 84 in the original function\n        case 248:\n            return 85; // Note: 98 is used for 85, 86, 87, 88, and 89 in the original function\n        case 250:\n            return 90; // Note: 99 is used for 90, 91, 92, 93, 94, 95, 96, and 97 in the original function\n        case 252:\n            return 95;\n        case 254:\n            return 100;\n        case 1:\n        case 2:\n        case 3:\n        case 4:\n        case 5:\n        case 6:\n        case 7:\n        case 8:\n        case 9:\n        case 10:\n        case 11:\n        case 12:\n        case 13:\n        case 14:\n        case 15:\n            return 1;\n        case 16:\n        case 17:\n        case 18:\n        case 19:\n        case 20:\n        case 21:\n        case 22:\n        case 23:\n        case 24:\n        case 25:\n        case 26:\n        case 27:\n        case 28:\n        case 29:\n        case 30:\n        case 31:\n        case 32:\n        case 33:\n        case 34:\n            return 1;\n        case 35:\n        case 36:\n        case 37:\n        case 38:\n        case 39:\n        case 40:\n        case 41:\n        case 42:\n        case 43:\n        case 44:\n        case 45:\n            return 1;\n        case 46:\n        case 47:\n        case 48:\n        case 49:\n        case 50:\n        case 51:\n        case 52:\n        case 53:\n        case 54:\n            return 1;\n        case 55:\n        case 56:\n        case 57:\n        case 58:\n        case 59:\n        case 60:\n        case 61:\n        case 62:\n            return 1;\n        case 63:\n        case 64:\n        case 65:\n        case 66:\n        case 67:\n        case 68:\n            return 1;\n        case 69:\n        case 70:\n        case 71:\n        case 72:\n        case 73:\n        case 74:\n            return 1;\n        case 75:\n        case 76:\n        case 77:\n        case 78:\n        case 79:\n            return 1;\n        case 80:\n        case 81:\n        case 82:\n        case 83:\n            return 1;\n        case 84:\n        case 85:\n        case 86:\n        case 87:\n            return 1;\n        case 88:\n        case 89:\n            return 1;\n        case 90:\n        case 91:\n        case 92:\n            return 1;\n        case 93:\n        case 94:\n            return 1;\n        case 95:\n        case 96:\n            return 1;\n        case 97:\n            return 1;\n        case 98:\n        case 99:\n        case 100:\n            return 1;\n        case 101:\n        case 102:\n            return 1;\n        case 103:\n        case 104:\n            return 1;\n        case 105:\n        case 106:\n            return 1;\n        case 107:\n        case 108:\n            return 2;\n        case 109:\n        case 110:\n            return 2;\n        case 111:\n        case 112:\n            return 2;\n        case 113:\n        case 114:\n            return 2;\n        case 115:\n            return 2;\n        case 116:\n        case 117:\n            return 2;\n        case 118:\n            return 2;\n        case 119:\n        case 120:\n            return 2;\n        case 121:\n            return 2;\n        case 122:\n        case 123:\n            return 2;\n        case 124:\n            return 3;\n        case 125:\n            return 3;\n        case 126:\n            return 3;\n        case 127:\n            return 3;\n        case 128:\n            return 3;\n        case 129:\n            return 3;\n        case 130:\n            return 3;\n        case 131:\n            return 3;\n        case 132:\n            return 3;\n        case 133:\n            return 3;\n        case 134:\n            return 4;\n        case 135:\n            return 4;\n        case 136:\n            return 4;\n        default:\n        return -1;\n        \n    }\n}\n\nfunction getCorrespondingLevelCont(input_light){\n    switch (input_light) {\n        case 137:\n            return 4;\n        case 138:\n            return 4;\n        case 139:\n        case 140:\n            return 4;\n        case 141:\n            return 4;\n        case 142:\n            return 4;\n        case 143:\n            return 4;\n        case 145:\n            return 5;\n        case 146:\n            return 5;\n        case 147:\n            return 5;\n        case 148:\n            return 5;\n        case 149:\n            return 5;\n        case 150:\n            return 5;\n        case 151:\n            return 6;\n        case 152:\n            return 6;\n        case 153:\n            return 6;\n        case 154:\n            return 6;\n        case 155:\n            return 6;\n        case 156:\n            return 6;\n        case 157:\n            return 7;\n        case 158:\n            return 7;\n        case 159:\n            return 7;\n        case 160:\n            return 7;\n        case 161:\n            return 7;\n        case 162:\n            return 8;\n        case 163:\n            return 8;\n        case 164:\n            return 8;\n        case 165:\n            return 8;\n        case 166:\n            return 9;\n        case 167:\n            return 9;\n        case 168:\n            return 9;\n        case 169:\n            return 9;\n        case 171:\n            return 10;\n        case 172:\n            return 10;\n        case 173:\n            return 11;\n        case 174:\n            return 11;\n        case 175:\n            return 11;\n        case 176:\n            return 11;\n        case 177:\n            return 12;\n        case 178:\n            return 12;\n        case 179:\n            return 12;\n        case 180:\n            return 13;\n        case 181:\n            return 13;\n        case 182:\n            return 14;\n        case 183:\n            return 14;\n        case 184:\n            return 14;\n        case 186:\n            return 15;\n        case 187:\n            return 16;\n        case 188:\n            return 16;\n        case 189:\n            return 17;\n        case 190:\n            return 17;\n        case 191:\n            return 17;\n        case 192:\n            return 18;\n        case 193:\n            return 18;\n        case 194:\n            return 19;\n        case 196:\n            return 20;\n        case 197:\n            return 21;\n        case 198:\n            return 21;\n        case 199:\n            return 22;\n        case 200:\n            return 22;\n        case 201:\n            return 23;\n        case 202:\n            return 24;\n        case 204:\n            return 25;\n        case 205:\n            return 26;\n        case 206:\n            return 27;\n        case 207:\n            return 27;\n        case 208:\n            return 28;\n        case 209:\n            return 29;\n        case 211:\n            return 30;\n        case 212:\n            return 31;\n        case 213:\n            return 32;\n        case 214:\n            return 33;\n        case 215:\n            return 34;\n        case 217:\n            return 36;\n        case 218:\n            return 37;\n        case 219:\n            return 38;\n        case 220:\n            return 39;\n        case 222:\n            return 41;\n        case 223:\n            return 42;\n        case 224:\n            return 44;\n        case 226:\n            return 46;\n        case 227:\n            return 47;\n        case 228:\n            return 49;\n        case 230:\n            return 51;\n        case 231:\n            return 53;\n        case 232:\n            return 54;\n        case 234:\n            return 57;\n        case 237:\n            return 62;\n        case 238:\n            return 64;\n        case 239:\n            return 66;\n        case 240:\n            return 63.0;\n        case 242:\n            return 68;\n        case 243:\n            return 74;\n        case 245:\n            return 78;\n        case 247:\n            return 82;\n        case 249:\n            return 87;\n        case 251:\n            return 92;\n        case 253:\n            return 97;\n    }\n}",
+        "tbelScript" : "return {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "6253e451-1c4d-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Status+",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 767,
+        "layoutY" : 668
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "function padString(string, length, paddingCharacter) {\n    while (string.length < length) {\n        string = paddingCharacter + string;\n    }\n    return string;\n}\n\n\nmsg.GearNo = (parseInt(msg.HexData.substring(2, 4), 16));\nmsg.TotalGearNo = (parseInt(msg.HexData.substring(4, 6), 16));\n\n\nvar LoadsideActiveEnergyScale = HexComplement(parseInt(msg.HexData.substring(6, 8), 16));\nmsg.LoadsideActiveEnergy = (parseInt((msg.HexData.substring(8, 20).match(/.{2}/g).reverse().join('')), 16)) * Math.pow(10, LoadsideActiveEnergyScale);\n\nvar LoadsideActivePowerScale = HexComplement(parseInt(msg.HexData.substring(20, 22), 16));\nmsg.LoadsideActivePower = (parseInt((msg.HexData.substring(22, 30).match(/.{2}/g).reverse().join('')), 16)) * Math.pow(10, LoadsideActivePowerScale);\n\n\nmsg.LightSourceStartCounter = parseInt(msg.HexData.substring(30, 36), 16);\nmsg.LightSourceOperatingTime = parseInt(msg.HexData.substring(36, 44), 16);\nmsg.LightSourceVoltage = parseInt(msg.HexData.substring(44, 48), 16)/10;\nmsg.LightSourceCurrent = parseInt(msg.HexData.substring(48, 52), 16)/1000;\nmsg.LightSourceOverfallFailureConditionCounter = parseInt(msg.HexData.substring(52, 54), 16);\nmsg.LightSourceShortCircuitCounter = parseInt(msg.HexData.substring(54, 56), 16);\nmsg.LightSourceOpenCircuitCounter = parseInt(msg.HexData.substring(56, 58), 16);\nmsg.LightSourceThermalDearatingCounter = parseInt(msg.HexData.substring(58, 60), 16);\nmsg.LightSourceThermalShutdownCounter = parseInt(msg.HexData.substring(60, 62), 16);\nmsg.LightSourceTemperature = parseInt(msg.HexData.substring(62, 64), 16);\nmsg.LuminaireErrorFlags = padString((parseInt(msg.HexData.substring(64, 66), 16)).toString(2), 8, '0');\n\n\nfunction HexComplement(hex) {\n  hex = parseInt(hex);\n  if ((hex & 0x80) > 0) {\n    hex = hex - 0x100;\n    return hex;\n  }\n}\n\nreturn {msg:msg, metadata:metadata, msgType:msgType};",
+        "tbelScript" : "return {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "82e12ca0-1c4d-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Hybrid Profile",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1179,
+        "layoutY" : 530
+      },
+      "configuration" : {
+        "defaultTTL" : 0,
+        "skipLatestPersistence" : false,
+        "useServerTs" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "b4de1c40-1c4d-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Luminaire",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1178,
+        "layoutY" : 368
+      },
+      "configuration" : {
+        "defaultTTL" : 0,
+        "skipLatestPersistence" : false,
+        "useServerTs" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "b4de1c41-1c4d-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Status+",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1183,
+        "layoutY" : 669
+      },
+      "configuration" : {
+        "defaultTTL" : 0,
+        "skipLatestPersistence" : false,
+        "useServerTs" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "b4de1c42-1c4d-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Hybrid Profile",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 766,
+        "layoutY" : 600
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "function padString(string, length, paddingCharacter) {\r\n    while (string.length < length) {\r\n        string = paddingCharacter + string;\r\n    }\r\n    return string;\r\n}\r\n\r\n// HexData'yı al\r\nvar hex = msg.HexData;\r\n\r\n// Verileri parse et\r\nmsg.GearNo = parseInt(hex.substring(2, 4), 16);\r\nmsg.TotalGearNo = parseInt(hex.substring(4, 6), 16);\r\nmsg.GuaranteedSupplyCurrent = parseInt(hex.substring(6, 8), 16);\r\nmsg.MaximumSupplyCurrent = parseInt(hex.substring(8, 10), 16);\r\nmsg.DALIBusPowerSupplyStatus = parseInt(hex.substring(10, 12), 16);\r\n\r\n// GTIN gibi uzun sayılar BigInt ile daha güvenli\r\nmsg.GearGTIN = parseInt(hex.substring(12, 24)).toString();\r\nmsg.GearIdentificationNumber = parseInt(hex.substring(24, 40)).toString();\r\nmsg.GearHardwareMajorVersion = parseInt(hex.substring(40, 42), 16);\r\nmsg.GearHardwareMinorVersion = parseInt(hex.substring(42, 44), 16);\r\n\r\nmsg.LuminaireGTIN = parseInt(hex.substring(44, 56)).toString();\r\nmsg.LuminaireIdentificationNumber = parseInt(hex.substring(56, 72)).toString();\r\nmsg.LuminaireYearOfManufacture = parseInt(hex.substring(72, 74), 16);\r\nmsg.LuminaireWeekOfManufacture = parseInt(hex.substring(74, 76), 16);\r\nmsg.NominalInputPower = parseInt(hex.substring(76, 80), 16);\r\nmsg.NominalLightOutput = parseInt(hex.substring(80, 86), 16);\r\nmsg.CRI = parseInt(hex.substring(86, 88), 16);\r\nmsg.CCT = parseInt(hex.substring(88, 92), 16);\r\nmsg.RatedMedianUsefulLifeOfLuminaire = parseInt(hex.substring(92, 94), 16);\r\nmsg.RatedMedianUsefulLightSourceStarts = parseInt(hex.substring(94, 98), 16);\r\n\r\n// Sonuç olarak JSON yapısını dön\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};\r\n",
+        "tbelScript" : "return {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "f33d43c0-1e79-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Inventory",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1181,
+        "layoutY" : 597
+      },
+      "configuration" : {
+        "defaultTTL" : 0,
+        "skipLatestPersistence" : false,
+        "useServerTs" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "f33d6ad0-1e79-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Inventory",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode"
     } ],
     "ruleChainConnections" : null
   },
+  "relations" : [ ],
   "attributes" : {
     "SERVER_SCOPE" : [ ]
   }
