@@ -1,0 +1,404 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : true,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "e69182c0-1c2c-11f0-afaf-b324fa34678d"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "ae5123d0-1c2b-11f0-afaf-b324fa34678d"
+    },
+    "name" : "Error",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "0"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "1"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "10"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "100"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "1000"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "10000"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "CGF"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "LF"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "LPV"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "OV"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "TO"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 2,
+      "type" : "1"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 3,
+      "type" : "100"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 4,
+      "type" : "1000"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 5,
+      "type" : "10"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 6,
+      "type" : "10000"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 7,
+      "type" : "100000"
+    }, {
+      "fromIndex" : 2,
+      "toIndex" : 8,
+      "type" : "Created"
+    }, {
+      "fromIndex" : 3,
+      "toIndex" : 8,
+      "type" : "Created"
+    }, {
+      "fromIndex" : 4,
+      "toIndex" : 8,
+      "type" : "Created"
+    }, {
+      "fromIndex" : 5,
+      "toIndex" : 8,
+      "type" : "Created"
+    }, {
+      "fromIndex" : 6,
+      "toIndex" : 8,
+      "type" : "Created"
+    }, {
+      "fromIndex" : 7,
+      "toIndex" : 8,
+      "type" : "Created"
+    } ],
+    "firstNodeIndex" : 0,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 284,
+        "layoutY" : 152
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var hex = msg.HexData.toString();\n//msg.Error = SelectError(hex);\n\nvar status = parseInt(hex.substring(2, 4), 16);\n\nvar errors = [];\n\n\nif ((status & 1 ) !== 0) {\n    errors.push(\"1\");\n} else {\n    errors.push(\"TO\");\n}\nif ((status & 2 ) !== 0) {\n    errors.push(\"10\");\n} else {\n    errors.push(\"CGF\");\n}\nif ((status & 4 ) !== 0) {\n    errors.push(\"100\");\n} else {\n    errors.push(\"LF\");\n}\nif ((status & 8 ) !== 0) {\n    errors.push(\"1000\");\n} else {\n    errors.push(\"LPV\");\n}\nif ((status & 16 ) !== 0) {\n    errors.push(\"10000\");\n} else {\n    errors.push(\"OV\");\n}\nif ((status & 32) !== 0){\n    errors.push(\"100000\");\n} else {\n    errors.push(\"DLS\");\n}\nif (status === 0) {\n    errors.push(\"0\");\n}\n\n\nreturn errors;\n",
+        "tbelScript" : "function nextRelation(metadata, msg) {\n    return ['one','nine'];\n}\nif(msgType == 'POST_TELEMETRY_REQUEST') {\n    return ['two'];\n}\nreturn nextRelation(metadata, msg);"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "e69182c0-1c2c-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Error",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.filter.TbJsSwitchNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 970,
+        "layoutY" : 147
+      },
+      "configuration" : {
+        "defaultTTL" : 0,
+        "skipLatestPersistence" : false,
+        "useServerTs" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "2ab75ac0-1c31-11f0-afaf-b324fa34678d"
+      },
+      "name" : "0",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 565,
+        "layoutY" : 229
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "alarmDetailsBuildJs" : "var details = {};\r\n\r\n\r\nif (metadata.prevAlarmDetails != null) {\r\n  var prevDetails = JSON.parse(metadata.prevAlarmDetails);\r\n  // remove prevAlarmDetails from metadata\r\n  metadata.remove('prevAlarmDetails');\r\n  if (prevDetails.count != null) {\r\n    details.count = prevDetails.count + 1;\r\n  }\r\n}\r\n\r\nreturn details;\r\n",
+        "alarmDetailsBuildTbel" : "var details = {};\nif (metadata.prevAlarmDetails != null) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    metadata.remove('prevAlarmDetails');\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+        "useMessageAlarmData" : false,
+        "overwriteAlarmDetails" : false,
+        "alarmType" : "DALI Connection (TimeOut)",
+        "severity" : "CRITICAL",
+        "propagate" : false,
+        "relationTypes" : [ ],
+        "propagateToOwner" : false,
+        "propagateToOwnerHierarchy" : false,
+        "propagateToTenant" : false,
+        "dynamicSeverity" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "08aea3c0-2118-11f0-afaf-b324fa34678d"
+      },
+      "name" : "TimeOut",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbCreateAlarmNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 564,
+        "layoutY" : 317
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "alarmDetailsBuildJs" : "var details = {};\r\n\r\n\r\nif (metadata.prevAlarmDetails != null) {\r\n  var prevDetails = JSON.parse(metadata.prevAlarmDetails);\r\n  // remove prevAlarmDetails from metadata\r\n  metadata.remove('prevAlarmDetails');\r\n  if (prevDetails.count != null) {\r\n    details.count = prevDetails.count + 1;\r\n  }\r\n}\r\n\r\nreturn details;\r\n",
+        "alarmDetailsBuildTbel" : "var details = {};\nif (metadata.prevAlarmDetails != null) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    metadata.remove('prevAlarmDetails');\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+        "useMessageAlarmData" : false,
+        "overwriteAlarmDetails" : false,
+        "alarmType" : "DALI Connection (Lamp Failure)",
+        "severity" : "CRITICAL",
+        "propagate" : false,
+        "relationTypes" : [ ],
+        "propagateToOwner" : false,
+        "propagateToOwnerHierarchy" : false,
+        "propagateToTenant" : false,
+        "dynamicSeverity" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "08aecad0-2118-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Lamp Failure",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbCreateAlarmNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 564,
+        "layoutY" : 361
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "alarmDetailsBuildJs" : "var details = {};\r\n\r\n\r\nif (metadata.prevAlarmDetails != null) {\r\n  var prevDetails = JSON.parse(metadata.prevAlarmDetails);\r\n  // remove prevAlarmDetails from metadata\r\n  metadata.remove('prevAlarmDetails');\r\n  if (prevDetails.count != null) {\r\n    details.count = prevDetails.count + 1;\r\n  }\r\n}\r\n\r\nreturn details;\r\n",
+        "alarmDetailsBuildTbel" : "var details = {};\nif (metadata.prevAlarmDetails != null) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    metadata.remove('prevAlarmDetails');\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+        "useMessageAlarmData" : false,
+        "overwriteAlarmDetails" : false,
+        "alarmType" : "DALI Connection (Low Voltage)",
+        "severity" : "CRITICAL",
+        "propagate" : false,
+        "relationTypes" : [ ],
+        "propagateToOwner" : false,
+        "propagateToOwnerHierarchy" : false,
+        "propagateToTenant" : false,
+        "dynamicSeverity" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "08aecad1-2118-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Low Voltage",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbCreateAlarmNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 564,
+        "layoutY" : 273
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "alarmDetailsBuildJs" : "var details = {};\r\n\r\n\r\nif (metadata.prevAlarmDetails != null) {\r\n  var prevDetails = JSON.parse(metadata.prevAlarmDetails);\r\n  // remove prevAlarmDetails from metadata\r\n  metadata.remove('prevAlarmDetails');\r\n  if (prevDetails.count != null) {\r\n    details.count = prevDetails.count + 1;\r\n  }\r\n}\r\n\r\nreturn details;\r\n",
+        "alarmDetailsBuildTbel" : "var details = {};\nif (metadata.prevAlarmDetails != null) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    metadata.remove('prevAlarmDetails');\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+        "useMessageAlarmData" : false,
+        "overwriteAlarmDetails" : false,
+        "alarmType" : "DALI Connection (Gear Failure)",
+        "severity" : "CRITICAL",
+        "propagate" : false,
+        "relationTypes" : [ ],
+        "propagateToOwner" : false,
+        "propagateToOwnerHierarchy" : false,
+        "propagateToTenant" : false,
+        "dynamicSeverity" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "08aecad2-2118-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Gear Failure",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbCreateAlarmNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 563,
+        "layoutY" : 404
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "alarmDetailsBuildJs" : "var details = {};\r\n\r\n\r\nif (metadata.prevAlarmDetails != null) {\r\n  var prevDetails = JSON.parse(metadata.prevAlarmDetails);\r\n  // remove prevAlarmDetails from metadata\r\n  metadata.remove('prevAlarmDetails');\r\n  if (prevDetails.count != null) {\r\n    details.count = prevDetails.count + 1;\r\n  }\r\n}\r\n\r\nreturn details;\r\n",
+        "alarmDetailsBuildTbel" : "var details = {};\nif (metadata.prevAlarmDetails != null) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    metadata.remove('prevAlarmDetails');\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+        "useMessageAlarmData" : false,
+        "overwriteAlarmDetails" : false,
+        "alarmType" : "DALI Connection (Operating Voltage)",
+        "severity" : "CRITICAL",
+        "propagate" : false,
+        "relationTypes" : [ ],
+        "propagateToOwner" : false,
+        "propagateToOwnerHierarchy" : false,
+        "propagateToTenant" : false,
+        "dynamicSeverity" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "08aef1e0-2118-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Operating Voltage",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbCreateAlarmNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 564,
+        "layoutY" : 447
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "alarmDetailsBuildJs" : "var details = {};\r\n\r\n\r\nif (metadata.prevAlarmDetails != null) {\r\n  var prevDetails = JSON.parse(metadata.prevAlarmDetails);\r\n  // remove prevAlarmDetails from metadata\r\n  metadata.remove('prevAlarmDetails');\r\n  if (prevDetails.count != null) {\r\n    details.count = prevDetails.count + 1;\r\n  }\r\n}\r\n\r\nreturn details;\r\n",
+        "alarmDetailsBuildTbel" : "var details = {};\nif (metadata.prevAlarmDetails != null) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    metadata.remove('prevAlarmDetails');\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+        "useMessageAlarmData" : false,
+        "overwriteAlarmDetails" : false,
+        "alarmType" : "DALI Connection (Line Short)",
+        "severity" : "CRITICAL",
+        "propagate" : false,
+        "relationTypes" : [ ],
+        "propagateToOwner" : false,
+        "propagateToOwnerHierarchy" : false,
+        "propagateToTenant" : false,
+        "dynamicSeverity" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "08aef1e1-2118-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Line Short",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbCreateAlarmNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 948,
+        "layoutY" : 308
+      },
+      "configuration" : {
+        "fromTemplate" : "candela@elekon-tr.com",
+        "toTemplate" : "resulcankirti@elekon-tr.com",
+        "ccTemplate" : null,
+        "bccTemplate" : null,
+        "subjectTemplate" : "Candela Alarm: Cihaz ${deviceName}",
+        "mailBodyType" : "true",
+        "bodyTemplate" : "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Hata Uyarısı</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n            background-color: #f4f4f4;\n        }\n        .email-container {\n            max-width: 600px;\n            margin: 20px auto;\n            background: #ffffff;\n            border: 1px solid #dddddd;\n            border-radius: 8px;\n            overflow: hidden;\n        }\n        .header {\n            background-color: #f44336;\n            color: white;\n            text-align: center;\n            padding: 20px;\n        }\n        .header h1 {\n            margin: 0;\n            font-size: 24px;\n        }\n        .content {\n            padding: 20px;\n            line-height: 1.6;\n            color: #333333;\n        }\n        .content h2 {\n            margin-top: 0;\n            font-size: 20px;\n            color: #f44336;\n        }\n        .button {\n            display: inline-block;\n            margin: 20px 0;\n            padding: 10px 15px;\n            color: white;\n            background-color: #f44336;\n            text-decoration: none;\n            border-radius: 4px;\n        }\n        .footer {\n            background-color: #f4f4f4;\n            color: #777777;\n            text-align: center;\n            padding: 10px;\n            font-size: 12px;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"email-container\">\n        <!-- Header Section -->\n        <div class=\"header\">\n            <h1>Hata Uyarısı</h1>\n        </div>\n\n        <!-- Content Section -->\n        <div class=\"content\">\n            <h2>Kritik Hata Algılandı!</h2>\n            <p>\n                Değerli Admin,\n            </p>\n            <p>\n                Candela sokak aydınlatması uygulaması ${deviceName} isimli cihazda hata tespit edildi.</strong>.\n            </p>\n            <p>\n                <strong>Hata Detayları:</strong>\n                <br>\n                $[type]\n            </p>\n            <p>\n                Lütfen hatayı inceleyin veya daha fazla araştırma için destek ekibiyle iletişime geçin.\n            </p>\n            <a href=\"http://94.54.73.100:8081/\" class=\"button\">Hatayı Görüntüle</a>\n        </div>\n\n        <!-- Footer Section -->\n        <div class=\"footer\">\n            <p>This is an automated message. Please do not reply.</p>\n        </div>\n    </div>\n</body>\n</html>\n"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "47931a80-2118-11f0-afaf-b324fa34678d"
+      },
+      "name" : "Alarm",
+      "queueName" : null,
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.mail.TbMsgToEmailNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}
